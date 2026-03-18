@@ -29,7 +29,7 @@ app.use('/api/v1/categories', require('./routes/categories'))
 app.use('/api/v1/auth', require('./routes/auth'))
 
 
-mongoose.connect('mongodb+srv://kizzvpbq:ZUvOiwTuKrRGjMXm@gmail.p7jpd.mongodb.net/?retryWrites=true&w=majority&appName=gmail');
+mongoose.connect('mongodb://localhost:27017/NNPTUD-C4');
 mongoose.connection.on('connected', function () {
   console.log("connected");
 })
