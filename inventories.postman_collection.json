@@ -1,0 +1,151 @@
+{
+  "info": {
+    "name": "Inventories API",
+    "_postman_id": "inventories-api-collection",
+    "description": "API collection for Inventory management",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    },
+    {
+      "key": "productId",
+      "value": "REPLACE_WITH_PRODUCT_ID",
+      "type": "string"
+    },
+    {
+      "key": "inventoryId",
+      "value": "REPLACE_WITH_INVENTORY_ID",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Create Product (auto tao Inventory)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/products",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "products"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"San pham test\",\n  \"price\": 150000,\n  \"description\": \"Mo ta san pham\",\n  \"category\": \"REPLACE_WITH_CATEGORY_ID\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Inventories",
+      "item": [
+        {
+          "name": "Get All Inventories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/inventories",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "inventories"]
+            }
+          }
+        },
+        {
+          "name": "Get Inventory by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/inventories/{{inventoryId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "inventories", "{{inventoryId}}"]
+            }
+          }
+        },
+        {
+          "name": "Add Stock",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/inventories/add-stock",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "inventories", "add-stock"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"product\": \"{{productId}}\",\n  \"quantity\": 50\n}"
+            }
+          }
+        },
+        {
+          "name": "Remove Stock",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/inventories/remove-stock",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "inventories", "remove-stock"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"product\": \"{{productId}}\",\n  \"quantity\": 10\n}"
+            }
+          }
+        },
+        {
+          "name": "Reservation",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/inventories/reservation",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "inventories", "reservation"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"product\": \"{{productId}}\",\n  \"quantity\": 5\n}"
+            }
+          }
+        },
+        {
+          "name": "Sold",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/inventories/sold",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "inventories", "sold"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"product\": \"{{productId}}\",\n  \"quantity\": 5\n}"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
